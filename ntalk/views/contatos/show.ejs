@@ -1,17 +1,16 @@
 <% include ../header %>
 
-<head>
-  <h2>Ntalk - Dados do contato</h2>
-</head>
+<h2>Ntalk - Dados do contato</h2>
 <section>
-  <form action="/contato/<%- ._id %>" method="post">
+  <form action="/contato/<%- contato._id %>" method="post">
     <input type="hidden" name="_method" value="delete" />
-    <p><label>Nome:</label><%- contato.home %></p>
-    <p><label>E-mail:</label><%- contato.email %></p>
+    <p><label>Nome:</label> <%- contato.nome %></p>
+    <p><label>E-mail:</label> <%- contato.email %></p>
     <p>
       <button type="submit">Excluir</button>
-      <a href="/contato/<%- id %>/editar"></a>
+      <a href="/contato/<%- contato._id %>/editar">Editar</a>
     </p>
   </form>
 </section>
-<% include ../exit %> <% include ../footer %>
+<% include ../exit %>
+<% include ../footer %>

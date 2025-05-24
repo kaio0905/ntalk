@@ -9,7 +9,6 @@ module.exports = function (app) {
                 email: req.body.email,
                 nome: req.body.nome
             }
-            console.log(req_usuario)
             var query = { email: req_usuario.email };
             banco.findOne(query)
                 .select('_id email')
