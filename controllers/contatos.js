@@ -25,11 +25,11 @@ module.exports = function (app) {
     },
 
     show: function (req, res) {
-      var _id = req.session.usuario._id;
-      banco.findById(_id).then(function (usuario) {
+      var id = req.session.usuario._id;
+      banco.findById(id).then(function (usuario) {
         var contatoID = req.params.id;
         var contato = usuario.contatos.find(function (c) {
-          return c.nome === contatoID;
+          return c.id === contatoID;
         });
         var resultado = { contato: contato };
         res.render("contatos/show", resultado);
@@ -41,8 +41,8 @@ module.exports = function (app) {
     },
 
     edit: function (req, res) {
-      var _id = req.session.usuario._id;
-      banco.findById(_id).then(function (req, usuario) {
+      var id = req.session.usuario._id;
+      banco.findById(id).then(function (usuario) {
         var contatoID = req.params.id;
         var contato = usuario.contatos.id(contatoID);
         var resultado = { contato: contato };

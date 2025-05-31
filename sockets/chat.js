@@ -1,7 +1,7 @@
 module.exports = function (io) {
   var crypto = require("crypto"),
     sockets = io.sockets;
-
+console.log("chat")
   sockets.on("connection", function (client) {
     var session = client.request.session,
       usuario = session.usuario;
@@ -13,6 +13,7 @@ module.exports = function (io) {
     });
 
     client.on("send-server", function (msg) {
+      console.log(msg)
       var mensagem = "<b>" + usuario.nome + ":</b> " + msg + "<br>";
       var sala = client.data.sala;
       var data = { email: usuario.email, sala: sala };

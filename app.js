@@ -16,7 +16,7 @@ var express = require("express"),
   mongoose = require("mongoose");
 //routes = require('./routes/home');
 
-global.db = mongoose.connect("mongodb://localhost/ntalk");
+global.db = mongoose.connect("mongodb://localhost/talk");
 mongoose.connection.on("erro", (error) => {
   console.log(error);
 });
